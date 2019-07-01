@@ -18,23 +18,33 @@ class DetailViewController: UIViewController {
     var lat: String = ""
     var long: String = ""
     
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var imgView: UIImageView!
     
-    @IBOutlet weak var imageView: UIImageView!
-    
-    @IBOutlet weak var addressLabel: UILabel!
-    
-    @IBOutlet weak var openingHoursLabel: UITextView!
-    
-    @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var textArea: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        nameLabel.text = name
-        addressLabel.text = address
-        openingHoursLabel.text = openHours
-        phoneLabel.text = phone
+        let url = URL(string: self.imgUrl)
+        
+        let data = try? Data(contentsOf: url!)
+        
+        if let imageData = data {
+            self.imgView.image = UIImage(data: imageData)
+        } else {
+            self.imgView.image = UIImage(named: "notfound.png")
+        }
+        
+        
+        textArea.text = """
+        \(self.name)\n
+        Address:
+        \(self.address)\n
+        Opening Hours:
+        \(self.openHours)\n
+        Phone:
+        \(self.phone)
+        """
         
     }
     
@@ -44,7 +54,7 @@ class DetailViewController: UIViewController {
     
     
     // MARK: - Navigation
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let destinationVC = segue.destination as! MapViewController
@@ -53,6 +63,6 @@ class DetailViewController: UIViewController {
         destinationVC.long = Double(self.long) ?? 0
         
     }
- 
-
+    
+    
 }

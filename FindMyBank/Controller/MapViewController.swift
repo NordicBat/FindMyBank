@@ -18,8 +18,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Location"
-        
         let annotation = MKPointAnnotation()
         annotation.coordinate = CLLocationCoordinate2DMake(self.lat, self.long)
         let center = CLLocationCoordinate2D(latitude: self.lat, longitude: self.long)

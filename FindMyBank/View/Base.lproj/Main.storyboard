@@ -74,93 +74,67 @@
             </objects>
             <point key="canvasLocation" x="312" y="-368"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Detail-->
         <scene sceneID="0HB-NJ-Ad6">
             <objects>
-                <viewController id="2zj-fE-iyW" customClass="DetailViewController" customModule="FindMyBank" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Detail" id="2zj-fE-iyW" customClass="DetailViewController" customModule="FindMyBank" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iGS-NZ-0jt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUs-V7-yD8">
-                                <rect key="frame" x="20" y="127" width="374" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <viewLayoutGuide key="safeArea" id="EKK-14-wau"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cgo-7Q-mFz">
+                                <rect key="frame" x="148" y="832" width="118" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bw6-3u-1xf">
-                                <rect key="frame" x="20" y="426" width="374" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHP-NB-sxS">
-                                <rect key="frame" x="20" y="479" width="374" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kpb-2r-8dS">
-                                <rect key="frame" x="20" y="729" width="374" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iOn-nG-kU2">
-                                <rect key="frame" x="20" y="676" width="374" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PNL-UJ-jRt">
-                                <rect key="frame" x="20" y="248" width="374" height="170"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cgo-7Q-mFz">
-                                <rect key="frame" x="155" y="832" width="105" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Display on Map"/>
                                 <connections>
                                     <action selector="displayMap:" destination="2zj-fE-iyW" eventType="touchUpInside" id="OOG-bA-6hj"/>
                                     <segue destination="vyC-vd-uj5" kind="show" identifier="showMap" id="NWR-5N-VN6"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" text="Opening Hours" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tW7-sa-WER">
-                                <rect key="frame" x="20" y="532" width="374" height="136"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" contentMode="scaleToFill" editable="NO" text="Text" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tW7-sa-WER">
+                                <rect key="frame" x="20" y="416" width="374" height="408"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                 </accessibility>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="408" id="mRx-qd-ia5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" address="YES"/>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PNL-UJ-jRt">
+                                <rect key="frame" x="0.0" y="103" width="414" height="253"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PNL-UJ-jRt" firstAttribute="top" secondItem="OKB-Xq-Rm3" secondAttribute="top" constant="15" id="977-IN-3WY"/>
+                            <constraint firstItem="PNL-UJ-jRt" firstAttribute="trailing" secondItem="OKB-Xq-Rm3" secondAttribute="trailing" id="AIP-lR-0rZ"/>
+                            <constraint firstItem="tW7-sa-WER" firstAttribute="centerX" secondItem="PNL-UJ-jRt" secondAttribute="centerX" id="Ft3-SY-FrJ"/>
+                            <constraint firstItem="PNL-UJ-jRt" firstAttribute="leading" secondItem="OKB-Xq-Rm3" secondAttribute="leading" id="HBs-Te-x8g"/>
+                            <constraint firstItem="tW7-sa-WER" firstAttribute="centerX" secondItem="Cgo-7Q-mFz" secondAttribute="centerX" id="QYn-4X-TCh"/>
+                            <constraint firstItem="tW7-sa-WER" firstAttribute="leading" secondItem="iGS-NZ-0jt" secondAttribute="leadingMargin" id="f8m-tF-7kW"/>
+                            <constraint firstItem="tW7-sa-WER" firstAttribute="top" secondItem="iGS-NZ-0jt" secondAttribute="top" constant="416" id="i3B-xL-Ffq"/>
+                            <constraint firstItem="tW7-sa-WER" firstAttribute="top" secondItem="PNL-UJ-jRt" secondAttribute="bottom" constant="60" id="nuh-Uj-MB4"/>
+                            <constraint firstItem="Cgo-7Q-mFz" firstAttribute="top" secondItem="tW7-sa-WER" secondAttribute="bottom" constant="8" symbolic="YES" id="qr5-5l-KNk"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="OKB-Xq-Rm3"/>
                     </view>
                     <connections>
-                        <outlet property="addressLabel" destination="Bw6-3u-1xf" id="Dml-Hp-jTm"/>
-                        <outlet property="imageView" destination="PNL-UJ-jRt" id="ahu-Pk-V0T"/>
-                        <outlet property="nameLabel" destination="mUs-V7-yD8" id="urw-ni-iSf"/>
-                        <outlet property="openingHoursLabel" destination="tW7-sa-WER" id="D2K-Kh-BtI"/>
-                        <outlet property="phoneLabel" destination="Kpb-2r-8dS" id="RaQ-uw-H9Z"/>
+                        <outlet property="imgView" destination="PNL-UJ-jRt" id="M2P-an-BTB"/>
+                        <outlet property="textArea" destination="tW7-sa-WER" id="bwx-7N-WAe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VbU-Ae-mJe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2043.4782608695655" y="-368.97321428571428"/>
         </scene>
-        <!--Map View Controller-->
+        <!--Location-->
         <scene sceneID="sec-65-ajY">
             <objects>
-                <viewController id="vyC-vd-uj5" customClass="MapViewController" customModule="FindMyBank" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Location" id="vyC-vd-uj5" customClass="MapViewController" customModule="FindMyBank" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="t7i-ZU-eWE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
