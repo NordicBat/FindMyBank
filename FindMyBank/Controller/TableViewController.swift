@@ -40,20 +40,35 @@ class TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         let name = officesArray[indexPath.row].name
+        let detail = "\(officesArray[indexPath.row].zip) \(officesArray[indexPath.row].city), \(officesArray[indexPath.row].street)"
         
         cell.textLabel?.text = name
+        
+        cell.detailTextLabel?.text = detail
         
         return cell
     }
     
-    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: "showDetail", sender: self)
+    }
     // MARK: - Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
         
+        let destinationVC = segue.destination as! DetailViewController
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.name = officesArray[indexPath.row].name
+            destinationVC.imgUrl = officesArray[indexPath.row].imgURL
+            destinationVC.address = "\(officesArray[indexPath.row].zip) \(officesArray[indexPath.row].city), \(officesArray[indexPath.row].street)"
+            destinationVC.openHours = officesArray[indexPath.row].openingHour
+            destinationVC.phone = officesArray[indexPath.row].phone
+            
+            destinationVC.lat = officesArray[indexPath.row].lat
+            destinationVC.long = officesArray[indexPath.row].long
+        }
         
     }
     
@@ -70,6 +85,7 @@ class TableViewController: UITableViewController {
                 
                 self.officesArray.append(newOffice)
             }
+            self.officesArray.sort(by: {$0.zip < $1.zip})
             
         } catch let err {
             print(err.localizedDescription)

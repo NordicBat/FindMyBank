@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		289FFDBE5AD8A5CB5997C103 /* Pods_FindMyBank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5066CD15F443151496E501 /* Pods_FindMyBank.framework */; };
+		642D43CD22CA802000FA7903 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642D43CC22CA802000FA7903 /* MapViewController.swift */; };
 		6448E40222C8FE310023AE22 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6448E40122C8FE310023AE22 /* TableViewController.swift */; };
 		6466C68E22CA28BD009D7E80 /* Offices.json in Resources */ = {isa = PBXBuildFile; fileRef = 647BDCED22CA112800E2D5F2 /* Offices.json */; };
 		6466C69022CA2D56009D7E80 /* Office.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6466C68F22CA2D56009D7E80 /* Office.swift */; };
@@ -15,10 +16,12 @@
 		646C772122C8F5D200E19B9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 646C771F22C8F5D200E19B9D /* Main.storyboard */; };
 		646C772322C8F5DB00E19B9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 646C772222C8F5DB00E19B9D /* Assets.xcassets */; };
 		646C772622C8F5DB00E19B9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 646C772422C8F5DB00E19B9D /* LaunchScreen.storyboard */; };
+		647B0A2322CA5C8400B82820 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647B0A2222CA5C8400B82820 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		23351225CAA6ECF91045E9D7 /* Pods-FindMyBank.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMyBank.debug.xcconfig"; path = "Target Support Files/Pods-FindMyBank/Pods-FindMyBank.debug.xcconfig"; sourceTree = "<group>"; };
+		642D43CC22CA802000FA7903 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		6448E40122C8FE310023AE22 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		6466C68F22CA2D56009D7E80 /* Office.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Office.swift; sourceTree = "<group>"; };
 		646C771822C8F5D200E19B9D /* FindMyBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMyBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -27,6 +30,7 @@
 		646C772222C8F5DB00E19B9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		646C772522C8F5DB00E19B9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		646C772722C8F5DB00E19B9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		647B0A2222CA5C8400B82820 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		647BDCED22CA112800E2D5F2 /* Offices.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Offices.json; path = FindMyBank/Offices.json; sourceTree = "<group>"; };
 		7A5066CD15F443151496E501 /* Pods_FindMyBank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindMyBank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5A72D1F15EAEB4B2A875777 /* Pods-FindMyBank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMyBank.release.xcconfig"; path = "Target Support Files/Pods-FindMyBank/Pods-FindMyBank.release.xcconfig"; sourceTree = "<group>"; };
@@ -76,14 +80,40 @@
 			isa = PBXGroup;
 			children = (
 				646C771B22C8F5D200E19B9D /* AppDelegate.swift */,
-				6466C68F22CA2D56009D7E80 /* Office.swift */,
-				6448E40122C8FE310023AE22 /* TableViewController.swift */,
-				646C771F22C8F5D200E19B9D /* Main.storyboard */,
+				647B0A2422CA5C9400B82820 /* Model */,
+				647B0A2522CA5CAA00B82820 /* View */,
+				647B0A2622CA5CB100B82820 /* Controller */,
 				646C772222C8F5DB00E19B9D /* Assets.xcassets */,
 				646C772422C8F5DB00E19B9D /* LaunchScreen.storyboard */,
 				646C772722C8F5DB00E19B9D /* Info.plist */,
 			);
 			path = FindMyBank;
+			sourceTree = "<group>";
+		};
+		647B0A2422CA5C9400B82820 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6466C68F22CA2D56009D7E80 /* Office.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		647B0A2522CA5CAA00B82820 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				646C771F22C8F5D200E19B9D /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		647B0A2622CA5CB100B82820 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6448E40122C8FE310023AE22 /* TableViewController.swift */,
+				647B0A2222CA5C8400B82820 /* DetailViewController.swift */,
+				642D43CC22CA802000FA7903 /* MapViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		B25BEEC3C0F7C84A306D3DD2 /* Frameworks */ = {
@@ -213,6 +243,8 @@
 				6466C69022CA2D56009D7E80 /* Office.swift in Sources */,
 				646C771C22C8F5D200E19B9D /* AppDelegate.swift in Sources */,
 				6448E40222C8FE310023AE22 /* TableViewController.swift in Sources */,
+				642D43CD22CA802000FA7903 /* MapViewController.swift in Sources */,
+				647B0A2322CA5C8400B82820 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
