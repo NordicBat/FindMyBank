@@ -25,6 +25,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Downloading the image with the url, in case it doesnt work displays a default image
         let url = URL(string: self.imgUrl)
         
         let data = try? Data(contentsOf: url!)
@@ -35,7 +36,7 @@ class DetailViewController: UIViewController {
             self.imgView.image = UIImage(named: "notfound.png")
         }
         
-        
+        //Setting the text with the data from previous viewController
         textArea.text = """
         \(self.name)\n
         Address:

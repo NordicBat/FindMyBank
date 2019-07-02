@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 import SwiftyJSON
 
 class TableViewController: UITableViewController {
@@ -18,20 +19,21 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
         updateArray()
+        //updateArrayAPI()
         tableView.reloadData()
-        self.title = "Financial Offices"
+        
+       
     }
 
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return officesArray.count
     }
     
@@ -53,6 +55,7 @@ class TableViewController: UITableViewController {
         
         performSegue(withIdentifier: "showDetail", sender: self)
     }
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -72,7 +75,9 @@ class TableViewController: UITableViewController {
         
     }
     
+    // MARK: - Fill array function
     private func updateArray(){
+        
         
         do {
             
@@ -90,6 +95,57 @@ class TableViewController: UITableViewController {
         } catch let err {
             print(err.localizedDescription)
         }
+        
+        
+    }
+    
+    // Func to try to download the data and create a PLIST with the response, not finished, need fix!!
+    private func updateArrayAPI(){
+        
+        let urlAPI = "https://service.bmf.gv.at/Finanzamtsliste.json"
+        
+        let documentDirectoryURL =  FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+        
+        let fileURL = documentDirectoryURL.appendingPathComponent("Offices.plist")
+        
+        DispatchQueue.main.async {
+            
+            let request = URLRequest(url: URL(string: urlAPI)!)
+            let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
+                
+                guard let data = data, error == nil else { return }
+                
+                let json = try? JSON(data: data)
+
+                
+                for office in json?.arrayValue ?? [] {
+                    let dictionary = office
+                    print(dictionary)
+                    do {
+                        try PropertyListEncoder().encode(dictionary).write(to: fileURL)
+                    } catch {
+                        print(error)
+                    }
+                    
+                }
+                do {
+                    let data = try Data(contentsOf: fileURL)
+                    let offices = try PropertyListDecoder().decode([String: String].self, from: data)
+                    for _ in offices {
+                        let newOffice = Office.init(id: offices["DisKz"] ?? "", name: offices["DisNameLang"] ?? "", zip: offices["DisPlz"] ?? "", city: offices["DisOrt"] ?? "", phone: offices["DisTel"] ?? "", street: offices["DisStrasse"] ?? "", openingHour: offices["DisOeffnung"] ?? "", imgURL: offices["DisFotoUrl"] ?? "", lat: offices["DisLatitude"] ?? "", long: offices["DisLongitude"] ?? "")
+                        self.officesArray.append(newOffice)
+                    }
+                    
+                } catch {
+                    self.updateArray()
+                }
+                
+                
+            })
+            task.resume()
+            
+        }
+       
     }
     
 }

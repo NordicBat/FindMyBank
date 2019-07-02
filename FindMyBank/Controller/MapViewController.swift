@@ -15,9 +15,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     var long: Double = 0
     
     @IBOutlet weak var mapView: MKMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Create the pin for the map in the coordinates
         let annotation = MKPointAnnotation()
         annotation.coordinate = CLLocationCoordinate2DMake(self.lat, self.long)
         let center = CLLocationCoordinate2D(latitude: self.lat, longitude: self.long)
